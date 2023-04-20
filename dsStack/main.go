@@ -3,6 +3,7 @@ package main
 import (
 	"ds/stack"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -18,16 +19,16 @@ func main() {
 	s.Push(1)
 	s.Push(2)
 	s.Push(3)
-	fmt.Println(s.Data)
+	log.Println(s.Data)
 	err := s.Push(5)
 	checkError(err)
 	v, err1 := s.Pop()
 	checkError(err1)
-	fmt.Println(v)
+	log.Println(v)
 	p, err4 := s.Peek()
 	checkError(err4)
-	fmt.Println(p)
-	fmt.Println(s.Length())
-	fmt.Println(s.IsEmpty())
+	log.Println(p)
+	log.Println(s.Length())
+	log.Println(s.IsEmpty())
 
 }

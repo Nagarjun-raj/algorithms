@@ -15,32 +15,29 @@ func New(size int) *Queue {
 }
 
 func (q *Queue) EnQueue(ele string) error { //adds element in rear
-	l := len(q.data)
+	l := q.SizeOfQueue()
 	if l < q.size {
 		q.data = append(q.data, ele)
 		return nil
-	} else {
-		return errors.New("queue is full")
 	}
+	return errors.New("queue is full")
 }
 
 func (q *Queue) DeQueue() (string, error) { //deletes element in front
-	l := len(q.data)
+	l := q.SizeOfQueue()
 	if l == 0 {
 		return "", errors.New("queue is empty")
-	} else {
-		element := q.data[0]
-		q.data = q.data[1:]
-		return element, nil
 	}
+	element := q.data[0]
+	q.data = q.data[1:]
+	return element, nil
 }
 
 func (q *Queue) Front() (string, error) { //returns 1st element
-	if len(q.data) == 0 {
+	if q.SizeOfQueue() == 0 {
 		return "", errors.New("queue is empty")
-	} else {
-		return q.data[0], nil
 	}
+	return q.data[0], nil
 }
 
 func (q *Queue) SizeOfQueue() int {
@@ -48,5 +45,5 @@ func (q *Queue) SizeOfQueue() int {
 }
 
 func (q *Queue) IsEmpty() bool {
-	return len(q.data) == 0
+	return q.SizeOfQueue() == 0
 }

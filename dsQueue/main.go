@@ -3,6 +3,7 @@ package main
 import (
 	"ds/queue"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -19,12 +20,12 @@ func main() {
 	q.EnQueue("Hello")
 	q.EnQueue("Good Morning")
 	q.EnQueue("Nagarjun")
-	fmt.Println(q.SizeOfQueue())
+	log.Println(q.SizeOfQueue())
 	v, err := q.DeQueue()
 	errorCheck(err)
-	fmt.Println(v)
+	log.Println(v)
 	f, err1 := q.Front()
 	errorCheck(err1)
-	fmt.Println(f)
-	fmt.Println(q.IsEmpty())
+	log.Println(f)
+	log.Println(q.IsEmpty())
 }
