@@ -2,7 +2,6 @@ package main
 
 import (
 	"ds/nagarjun"
-	"fmt"
 	"log"
 	"os"
 )
@@ -27,12 +26,12 @@ func main() {
 	log.Println(l)
 	k, err1 := l.InsertAfter(4, 1)
 	errorCheck(err1)
-	fmt.Println(l)
+	log.Println(l)
 	log.Println(k)
 	log.Println(l)
 	n, err2 := l.Remove(1)
-	fmt.Println(n)
+	log.Println(n)
 	errorCheck(err2)
-	fmt.Println(l)
+	log.Println(l)
 
 }
