@@ -14,7 +14,8 @@ func New(size int) *Stack {
 	}
 }
 
-func (s *Stack) Push(ele interface{}) error { //adds elements on top
+// adds elements on top
+func (s *Stack) Push(ele interface{}) error {
 	l := s.Length()
 	if l < s.Size {
 		s.Data = append([]interface{}{ele}, s.Data...)
@@ -23,7 +24,8 @@ func (s *Stack) Push(ele interface{}) error { //adds elements on top
 	return errors.New("Stack is full")
 }
 
-func (s *Stack) Pop() (interface{}, error) { //removes 1st element
+// removes 1st element
+func (s *Stack) Pop() (interface{}, error) {
 	l := s.Length()
 	if l == 0 {
 		return nil, errors.New("Stack is empty")
@@ -33,7 +35,8 @@ func (s *Stack) Pop() (interface{}, error) { //removes 1st element
 	return ele, nil
 }
 
-func (s *Stack) Peek() (interface{}, error) { //returns 1st element
+// returns 1st element
+func (s *Stack) Peek() (interface{}, error) {
 	l := s.Length()
 	if l == 0 {
 		return nil, errors.New("Stack is empty")
@@ -42,10 +45,12 @@ func (s *Stack) Peek() (interface{}, error) { //returns 1st element
 	return ele, nil
 }
 
-func (s *Stack) Length() int { //returns size of stack
+// returns size of stack
+func (s *Stack) Length() int {
 	return len(s.Data)
 }
 
-func (s *Stack) IsEmpty() bool { //tells whether stack is emplty or not.
+// tells whether stack is emplty or not.
+func (s *Stack) IsEmpty() bool {
 	return s.Length() == 0
 }

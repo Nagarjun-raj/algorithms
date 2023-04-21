@@ -18,8 +18,6 @@ func main() {
 	l.PushBack(1)
 	l.PushBack(2)
 	l.PushFront(3)
-	// err := l.PushBack(8)
-	// errorCheck(err)
 	v, err := l.Remove(0)
 	errorCheck(err)
 	log.Println(v)

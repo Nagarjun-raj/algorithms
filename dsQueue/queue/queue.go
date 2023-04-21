@@ -14,7 +14,8 @@ func New(size int) *Queue {
 	}
 }
 
-func (q *Queue) EnQueue(ele string) error { //adds element in rear
+// adding element in rear
+func (q *Queue) EnQueue(ele string) error {
 	l := q.SizeOfQueue()
 	if l < q.size {
 		q.data = append(q.data, ele)
@@ -23,7 +24,8 @@ func (q *Queue) EnQueue(ele string) error { //adds element in rear
 	return errors.New("queue is full")
 }
 
-func (q *Queue) DeQueue() (string, error) { //deletes element in front
+// deleting element in front
+func (q *Queue) DeQueue() (string, error) {
 	l := q.SizeOfQueue()
 	if l == 0 {
 		return "", errors.New("queue is empty")
@@ -33,7 +35,8 @@ func (q *Queue) DeQueue() (string, error) { //deletes element in front
 	return element, nil
 }
 
-func (q *Queue) Front() (string, error) { //returns 1st element
+// returns 1st element
+func (q *Queue) Front() (string, error) {
 	if q.SizeOfQueue() == 0 {
 		return "", errors.New("queue is empty")
 	}
