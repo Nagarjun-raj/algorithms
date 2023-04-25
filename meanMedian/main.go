@@ -13,11 +13,10 @@ func addNums(i int, w *sync.WaitGroup, ch chan int) {
 	w.Done()
 }
 
-func meanMedianCal(ch chan int, m *sync.Mutex, ch2 chan bool, count int, sum int) {
+func meanMedianCal(ch chan int, ch2 chan bool, count int, sum int) {
 	var median = 0
 	temp := make([]int, 0)
 	for j := range ch {
-		m.Lock()
 		temp = append(temp, j)
 		sort.Ints(temp)
 		count++
@@ -39,8 +38,6 @@ func meanMedianCal(ch chan int, m *sync.Mutex, ch2 chan bool, count int, sum int
 
 		}
 
-		m.Unlock()
-
 	}
 	ch2 <- true
 
@@ -50,10 +47,9 @@ func main() {
 	var count = 0
 	var sum = 0
 	ch := make(chan int)
-	var m sync.Mutex
 	var w sync.WaitGroup
 	ch2 := make(chan bool)
-	go meanMedianCal(ch, &m, ch2, count, sum)
+	go meanMedianCal(ch, ch2, count, sum)
 	arr := []int{1, 3, 5, 7, 9, 2, 4, 6, 8}
 	for _, v := range arr {
 		w.Add(1)
